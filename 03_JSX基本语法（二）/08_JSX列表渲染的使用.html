@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计数器</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="../lib/react.js"></script>
+    <script src="../lib/react-dom.js"></script>
+    <script src="../lib/babel.js"></script>
+    <style>
+      .item {
+        border: 1px solid #ccc;
+      }
+    </style>
+    <script type="text/babel">
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      class App extends React.Component {
+        constructor() {
+          super();
+          this.state = {
+            students: [
+              { id: 111, name: "tom", score: 125 },
+              { id: 222, name: "jerry", score: 88 },
+              { id: 333, name: "jack", score: 182 },
+              { id: 444, name: "rose", score: 155 },
+            ],
+          };
+        }
+        render() {
+          const { students } = this.state;
+          //   分数大于100的人进行展示
+          const filterStudents = students.filter((item) => item.score > 100);
+          //   分数大于100之战时两个人的信息
+          //   slice(start,end) => slice[start,end)
+          const sliceStudents = filterStudents.slice(0, 2);
+          return (
+            <div>
+              <h2> 学生列表数据</h2>
+              <div className="list">
+                {sliceStudents.map((item) => (
+                  <div className="item" key={item.id}>
+                    <h2>{item.id}</h2>
+                    <h2>{item.name}</h2>
+                    <h2>{item.score}</h2>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        }
+      }
+      root.render(<App />);
+    </script>
+  </body>
+</html>
