@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { flushSync } from "react-dom";
+
 export class App extends Component {
   constructor() {
     super();
@@ -8,19 +8,7 @@ export class App extends Component {
       counter: 0,
     };
   }
-  changeText() {
-    setTimeout(() => {
-      // 在react18之前，setTimeout中setState操作时同步的
-      // 在react18之后，setTimeout中setState操作时异步的
-      // 批处理
-      flushSync(() => {
-        this.setState({
-          message: "你好啊",
-        });
-      });
-      console.log(this.state.message);
-    }, 0);
-  }
+  changeText() {}
   increment() {
     // this.setState({
     //   counter: this.state.counter + 1,
