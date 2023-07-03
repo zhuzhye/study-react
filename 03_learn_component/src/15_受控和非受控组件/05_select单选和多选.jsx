@@ -1,4 +1,4 @@
-import React, { PureComponent, createRef } from "react";
+import React, { PureComponent } from "react";
 
 export class App extends PureComponent {
   constructor() {
@@ -13,11 +13,8 @@ export class App extends PureComponent {
         { value: "rap", text: "rap", isChecked: false },
       ],
       fruit: ["orange"],
-      info: "哈哈哈",
     };
-    this.inputRef = createRef();
   }
-  componentDidMount() {}
   handleSubmitClick(event) {
     // 1.阻止默认行为
     event.preventDefault();
@@ -28,7 +25,6 @@ export class App extends PureComponent {
       "获取爱好",
       this.state.hobbies.filter((item) => item.isChecked).map((event) => event.text)
     );
-    console.log(this.inputRef.current.value);
     // 获取到所有表单数据，对数据进行组件
     // 以网络请求的方式，将数据传递给服务端（axios/fetch)
   }
@@ -70,7 +66,7 @@ export class App extends PureComponent {
     console.log(values2);
   }
   render() {
-    const { username, password, isAgree, hobbies, fruit, inputRef } = this.state;
+    const { username, password, isAgree, hobbies, fruit } = this.state;
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmitClick(e)}>
@@ -110,10 +106,6 @@ export class App extends PureComponent {
               <option value="orange">橘子</option>
               <option value="banane">香蕉</option>
             </select>
-          </div>
-          {/* 5非受控组件 */}
-          <div>
-            <input type="text" ref={this.inputRef} defaultValue={"hhhh"} />
           </div>
           <button type="submit">注册</button>
         </form>
