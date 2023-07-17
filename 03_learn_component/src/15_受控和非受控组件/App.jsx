@@ -70,7 +70,7 @@ export class App extends PureComponent {
     console.log(values2);
   }
   render() {
-    const { username, password, isAgree, hobbies, fruit, inputRef } = this.state;
+    const { username, password, isAgree, hobbies, fruit } = this.state;
     return (
       <div>
         <form onSubmit={(e) => this.handleSubmitClick(e)}>

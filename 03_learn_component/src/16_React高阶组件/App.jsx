@@ -1,15 +1,24 @@
 import React, { PureComponent } from "react";
+import Cart from "./pages/Cart";
 
-// 定义一个高阶组件
-function hoc(Cpn) {
-  // return Cpn
-  // 1.定义一个类组件
-  class NewCpn extends PureComponent {}
-  return NewCpn;
-}
 export class App extends PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      isLogin: false,
+    };
+  }
+  loginClick() {
+    localStorage.setItem("token", "sss");
+    this.forceUpdate();
+  }
   render() {
-    return <div>App</div>;
+    return (
+      <div>
+        <button onClick={(e) => this.loginClick()}>登录</button>
+        <Cart></Cart>
+      </div>
+    );
   }
 }
 
