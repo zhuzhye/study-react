@@ -12,6 +12,7 @@ export class App extends PureComponent {
           <h1>xxxxx</h1>
         </Modal>
       </div>
+
     );
   }
 }
