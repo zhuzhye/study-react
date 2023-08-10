@@ -9,6 +9,17 @@ const reducer = combineReducers({
     home: homeReducer,
     user: UserReducer
 })
+
+// combineReducers的简单实现
+// function reducer(state = {}, action) {
+//     //返回一个对象，store的state
+//     return {
+//         counter: counterReducer(state.counter, action),
+//         home: homeReducer(state.home, action),
+//         user: UserReducer(state.user, action)
+//     }
+// }
+
 // 正常情况下 store.dispatch(object)
 // 想要派发函数：store.dispatch(function) redux-thunk
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) || compose;
