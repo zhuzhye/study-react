@@ -60,7 +60,9 @@ const mapStateToProps = (state) => ({
   recommand: state.home.recommand,
 });
 const mapDispatchToProps = (dispatch) => ({
-  addNumber: (num) => dispatch(addNumberAction(num)),
+  addNumber: (num) => {
+    dispatch(addNumberAction(num));
+  },
   subNumber: (num) => dispatch(sunNumberAction(num)),
 });
 

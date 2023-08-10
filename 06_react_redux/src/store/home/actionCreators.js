@@ -15,7 +15,7 @@ export const fetchHomeMultidataAction = () => {
     // 问题：对象中是不能直接拿到服务器请求的异步数据
     // return {}
     function foo(dispatch, getState) {
-        console.log('first')
+        console.log(getState)
         axios.get("http://123.207.32.32:8000/home/multidata").then((res) => {
             const banner = res.data.data.banner.list;
             const recomend = res.data.data.recommend.list;
@@ -23,7 +23,6 @@ export const fetchHomeMultidataAction = () => {
             dispatch(changeBannerAction(banner));
             dispatch(changeRecommandAction(recomend));
         });
-        console.log("foo-function-exection")
         // 异步操作：发送网络请求
     }
     // 如果返回一个函数那么redux不支持
