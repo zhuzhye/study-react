@@ -1,20 +1,20 @@
-import React, { Component } from 'react'
-import Home from './Home'
-import ThemeContext from './context/theme-context'
-import HomeInfo from './HomeInfo'
-import HomeBananer from './HomeBanner'
-import { UserContext, aa } from './context/user-context'
+import React, { Component } from "react";
+import Home from "./Home";
+import ThemeContext from "./context/theme-context";
+import HomeInfo from "./HomeInfo";
+import HomeBananer from "./HomeBanner";
+import { UserContext, aa } from "./context/user-context";
 // 1创建一个context
 export class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      info: { name: 'kobe', age: 30 }
-    }
+      info: { name: "kobe", age: 30 },
+    };
   }
   render() {
-    const { info } = this.state
-    aa.bb = 1
+    const { info } = this.state;
+    aa.bb = 1;
     return (
       <div>
         <h2>App</h2>
@@ -22,17 +22,16 @@ export class App extends Component {
         {/* <Home name="wshy" age={18}></Home>
         <Home {...info}></Home> */}
         {/* 2.给普通的Home传递 */}
-        <UserContext.Provider value={{ nickname: 'kobe' }}>
-          <ThemeContext.Provider value={{ color: 'red', size: '30' }} >
+        <UserContext.Provider value={{ nickname: "kobe" }}>
+          <ThemeContext.Provider value={{ color: "red", size: "30" }}>
             <Home {...info}></Home>
             <HomeInfo></HomeInfo>
             <HomeBananer></HomeBananer>
           </ThemeContext.Provider>
         </UserContext.Provider>
-
-      </div >
-    )
+      </div>
+    );
   }
 }
 
-export default App
+export default App;
