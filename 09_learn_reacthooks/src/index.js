@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './12_自定义hooks/App';
+import { Provider } from 'react-redux';
+import store from './13_redux中的hooks/store';
+import App from './15_useTransition使用/App';
 // import { UserContext, ThemeContext } from './05_useContext的使用/context';
 import { UserContext, TokenContext } from './12_自定义hooks/context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -14,7 +16,9 @@ root.render(
 
   <UserContext.Provider value={{ name: "zzy", level: "99" }}>
     <TokenContext.Provider value={{ token: 'zzytoken' }} >
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </TokenContext.Provider>
   </UserContext.Provider>
   // </React.StrictMode>
